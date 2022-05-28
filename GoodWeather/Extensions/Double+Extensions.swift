@@ -7,16 +7,13 @@
 
 import Foundation
 
-
 extension Double {
-    
     func formatAsDegree() -> String {
-        
         let userDefaults = UserDefaults.standard
         if let unitValue = userDefaults.value(forKey: "unit") as? String {
             let unit = Unit(rawValue: unitValue)!
             
-            switch (unit) {
+            switch unit {
             case .celsius:
                 return String(format: "%.0f°C", self)
             case .fahrenheit:
@@ -27,5 +24,4 @@ extension Double {
             return String(format: "%.0f°", self)
         }
     }
-    
 }

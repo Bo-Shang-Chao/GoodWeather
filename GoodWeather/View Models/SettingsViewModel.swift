@@ -13,24 +13,19 @@ enum Unit: String, CaseIterable {
 }
 
 extension Unit {
-    
     var displayName: String {
-        get{
-            switch(self) {
-            case .celsius:
-                return "Celcius"
-            case .fahrenheit:
-                return "Fahrenheit"
-            }
+        switch self {
+        case .celsius:
+            return "Celcius"
+        case .fahrenheit:
+            return "Fahrenheit"
         }
     }
-    
 }
 
 class SettingsViewModel {
-    
     let units = Unit.allCases
-    
+
     var selectedUnit: Unit {
         get {
             let userDefault = UserDefaults.standard
@@ -45,5 +40,4 @@ class SettingsViewModel {
             userDefault.set(newValue.rawValue, forKey: "unit")
         }
     }
-    
 }

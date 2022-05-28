@@ -3,25 +3,23 @@
 //  GoodWeather
 //
 //  Created by ChaoBo-Shang on 2022/5/15.
-//openWeatherkey:bb8ffbbfc0973f324ca2a2dbe072a2b1
+// openWeatherkey:bb8ffbbfc0973f324ca2a2dbe072a2b1
 // https://api.openweathermap.org/data/2.5/weather?q=taipei&appid=bb8ffbbfc0973f324ca2a2dbe072a2b1
-
 
 import Foundation
 import UIKit
 
 class WeatherListTableViewController: UITableViewController, AddWeatherDelegate {
-    
     private var weatherListViewModel = WeatherListViewModel()
     private var lastUnitSelection: Unit!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
         
         let userDefault = UserDefaults.standard
         if let value = userDefault.value(forKey: "unit") as? String {
-            self.lastUnitSelection = Unit(rawValue: value)
+            lastUnitSelection = Unit(rawValue: value)
         }
         
         weatherListViewModel.loadDefaultCity { result in
@@ -33,7 +31,7 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
     
     func addWeatherDidSave(vm: WeatherViewModel) {
         weatherListViewModel.addWeatherViewModel(vm)
-        self.tableView.reloadData()
+        tableView.reloadData()
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -67,7 +65,6 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
     }
     
     func prepareSegueForAddWeatherCityViewController(segue: UIStoryboardSegue) {
-        
         guard let nav = segue.destination as? UINavigationController else {
             fatalError("NavigationController not found")
         }
@@ -77,11 +74,9 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
         }
         
         addWeatherCityVC.delegate = self
-        
     }
     
     func prepareSegueForSettingsTableViewController(segue: UIStoryboardSegue) {
-        
         guard let nav = segue.destination as? UINavigationController else {
             fatalError("NavigationController not found")
         }
@@ -91,11 +86,8 @@ class WeatherListTableViewController: UITableViewController, AddWeatherDelegate 
         }
         
         settingsTVC.delegate = self
-        
     }
-    
 }
-
 
 extension WeatherListTableViewController: SettingsDelegate {
     func SettingsDone(vm: SettingsViewModel) {

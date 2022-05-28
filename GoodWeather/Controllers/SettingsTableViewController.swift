@@ -12,22 +12,21 @@ protocol SettingsDelegate {
     func SettingsDone(vm: SettingsViewModel)
 }
 
-
 class SettingsTableViewController: UITableViewController {
     private var settingsViewModel = SettingsViewModel()
     var delegate: SettingsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     @IBAction func doneButtonPressed() {
-        if let delegate = self.delegate {
+        if let delegate = delegate {
             delegate.SettingsDone(vm: settingsViewModel)
         }
         
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -53,7 +52,7 @@ class SettingsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //uncheck all cells
+        // uncheck all cells
         
         tableView.visibleCells.forEach { cell in
             cell.accessoryType = .none
@@ -64,7 +63,6 @@ class SettingsTableViewController: UITableViewController {
             let unit = Unit.allCases[indexPath.row]
             settingsViewModel.selectedUnit = unit
         }
-        
     }
     
     override func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
@@ -72,5 +70,4 @@ class SettingsTableViewController: UITableViewController {
             cell.accessoryType = .none
         }
     }
-    
 }

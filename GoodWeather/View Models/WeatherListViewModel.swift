@@ -7,9 +7,7 @@
 
 import Foundation
 
-
 class WeatherListViewModel {
-    
     private var weatherViewModels = [WeatherViewModel]()
     
     func loadDefaultCity(completion: @escaping (Bool) -> Void) {
@@ -38,25 +36,23 @@ class WeatherListViewModel {
     }
     
     private func toCelcius() {
-        
         weatherViewModels = weatherViewModels.map { vm in
             let weatherModel = vm
             weatherModel.temperature = (weatherModel.temperature - 32) * 5/9
             return weatherModel
         }
-        
     }
     
     private func toFahrenheit() {
         weatherViewModels = weatherViewModels.map { vm in
             let weatherModel = vm
-            weatherModel.temperature = (weatherModel.temperature * 9/5 ) + 32
+            weatherModel.temperature = (weatherModel.temperature * 9/5) + 32
             return weatherModel
         }
     }
     
-    func updateUnit(to unit: Unit){
-        switch unit{
+    func updateUnit(to unit: Unit) {
+        switch unit {
         case .celsius:
             toCelcius()
         case .fahrenheit:
@@ -66,7 +62,6 @@ class WeatherListViewModel {
 }
 
 class WeatherViewModel {
-    
     let weather: WeatherResponse
     var temperature: Double
     init(weather: WeatherResponse) {
@@ -77,5 +72,4 @@ class WeatherViewModel {
     var city: String {
         return weather.name
     }
-    
 }
