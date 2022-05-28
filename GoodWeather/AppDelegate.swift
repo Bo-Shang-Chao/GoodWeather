@@ -14,7 +14,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if #available(iOS 13.0, *) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithDefaultBackground()
+            appearance.backgroundColor = UIColor(displayP3Red: 52/255, green: 152/255, blue: 219/255, alpha: 1.0)
+            appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+            appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+
+            UINavigationBar.appearance().standardAppearance = appearance
+            UINavigationBar.appearance().scrollEdgeAppearance = appearance
+            //navigationController?.navigationBar.compactAppearance = appearance
+            
+        } else {
+            UINavigationBar.appearance().barTintColor = UIColor(displayP3Red: 52/255, green: 152/255, blue: 219/255, alpha: 1.0)
+            UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: UIColor.white]
+            UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        }
+        
+        setupDefaultSettings()
+        
+        
+        UIBarButtonItem.appearance().tintColor = UIColor.white
+        
         return true
+    }
+    
+    private func setupDefaultSettings() {
+        
+        let userDefaults = UserDefaults.standard
+        if userDefaults.value(forKey: "unit") == nil {
+            userDefaults.set(Unit.fahrenheit.rawValue, forKey: "unit")
+        }
+        
+        if userDefaults.value(forKey: "city") == nil {
+            userDefaults.set("Taipei", forKey: "city")
+        }
+        
     }
 
     // MARK: UISceneSession Lifecycle
