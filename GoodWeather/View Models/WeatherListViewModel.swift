@@ -8,7 +8,7 @@
 import Foundation
 
 class WeatherListViewModel {
-    private var weatherViewModels = [WeatherViewModel]()
+    private(set) var weatherViewModels = [WeatherViewModel]()
     
     func loadDefaultCity(completion: @escaping (Bool) -> Void) {
         let userDefault = UserDefaults.standard
