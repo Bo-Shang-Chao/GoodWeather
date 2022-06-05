@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E0EDBC0284CC738000C5C82 /* SettingsViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EDBBF284CC738000C5C82 /* SettingsViewModelTest.swift */; };
+		8E0EDBC2284CCC20000C5C82 /* WeatherListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E0EDBC1284CCC20000C5C82 /* WeatherListViewModelTest.swift */; };
 		8E9970D82841BF1A00A2F530 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9970D72841BF1900A2F530 /* SettingsTableViewController.swift */; };
 		8E9970DA2841BF6900A2F530 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E9970D92841BF6900A2F530 /* SettingsViewModel.swift */; };
 		8EA14EB12830BB6600724E0D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA14EB02830BB6600724E0D /* AppDelegate.swift */; };
@@ -48,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8E0EDBBF284CC738000C5C82 /* SettingsViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModelTest.swift; sourceTree = "<group>"; };
+		8E0EDBC1284CCC20000C5C82 /* WeatherListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListViewModelTest.swift; sourceTree = "<group>"; };
 		8E9970D72841BF1900A2F530 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		8E9970D92841BF6900A2F530 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		8EA14EAD2830BB6600724E0D /* GoodWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +149,8 @@
 			isa = PBXGroup;
 			children = (
 				8EA14EC72830BB6E00724E0D /* GoodWeatherTests.swift */,
+				8E0EDBBF284CC738000C5C82 /* SettingsViewModelTest.swift */,
+				8E0EDBC1284CCC20000C5C82 /* WeatherListViewModelTest.swift */,
 			);
 			path = GoodWeatherTests;
 			sourceTree = "<group>";
@@ -372,7 +378,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E0EDBC2284CCC20000C5C82 /* WeatherListViewModelTest.swift in Sources */,
 				8EA14EC82830BB6E00724E0D /* GoodWeatherTests.swift in Sources */,
+				8E0EDBC0284CC738000C5C82 /* SettingsViewModelTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
